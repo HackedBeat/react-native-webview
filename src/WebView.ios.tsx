@@ -145,7 +145,7 @@ class WebView extends React.Component<IOSWebViewProps, State> {
    * Reloads the current page.
    */
   reload = () => {
-    this.setState({ viewState: 'LOADING' });
+    this.setState({ viewState: this.props.startInLoadingState ? 'LOADING' : 'IDLE' });
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
       this.getCommands().reload,
