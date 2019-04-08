@@ -87,7 +87,7 @@ class WebView extends React.Component<AndroidWebViewProps, State> {
 
   reload = () => {
     this.setState({
-      viewState: 'LOADING',
+      viewState: this.props.startInLoadingState ? 'LOADING' : 'IDLE',
     });
     UIManager.dispatchViewManagerCommand(
       this.getWebViewHandle(),
